@@ -4,47 +4,52 @@
 
 1. Permissions on `/etc/shadow` should allow only `root` read and write access.
 
-    - Command to inspect permissions:
+    - Command to inspect permissions: ls -l /etc/shadow
 
-    - Command to set permissions (if needed):
+    - Command to set permissions (if needed): sudo chmod 600 /etc/shadow
 
 2. Permissions on `/etc/gshadow` should allow only `root` read and write access.
 
-    - Command to inspect permissions:
+    - Command to inspect permissions: ls -l /etc/gshadow
 
-    - Command to set permissions (if needed):
+    - Command to set permissions (if needed): sudo chmod 600 /etc/gshadow
 
 3. Permissions on `/etc/group` should allow `root` read and write access, and allow everyone else read access only.
 
-    - Command to inspect permissions:
+    - Command to inspect permissions: ls -l /etc/group
 
-    - Command to set permissions (if needed):
+    - Command to set permissions (if needed): sudo chmod 644 /etc/group
 
 4. Permissions on `/etc/passwd` should allow `root` read and write access, and allow everyone else read access only.
 
-    - Command to inspect permissions:
+    - Command to inspect permissions: ls -l /etc/passwd
 
-    - Command to set permissions (if needed):
+    - Command to set permissions (if needed): sudo chmod 644 /etc/passwd
 
 ### Step 2: Create User Accounts
 
 1. Add user accounts for `sam`, `joe`, `amy`, `sara`, and `admin`.
 
-    - Command to add each user account (include all five users):
+    - Command to add each user account (include all five users): 
+sudo adduser sam && sudo adduser joe && sudo adduser amy && sudo adduser sara && sudo adduser admin
 
 2. Ensure that only the `admin` has general sudo access.
 
-    - Command to add `admin` to the `sudo` group:
+    - Command to add `admin` to the `sudo` group: sudo usermod -aG sudo admin
 
 ### Step 3: Create User Group and Collaborative Folder
 
 1. Add an `engineers` group to the system.
 
-    - Command to add group:
+    - Command to add group: sudo addgroup engineers
 
-2. Add users `sam`, `joe`, `amy`, and `sara` to the managed group.
+2. Add users `sam`, `joe`, `amy`, and `sara` to the managed group. 
 
     - Command to add users to `engineers` group (include all four users):
+sudo usermod -aG engineers sam
+sudo usermod -aG engineers joe
+sudo usermod -aG engineers amy
+sudo usermod -aG engineers sara
 
 3. Create a shared folder for this group at `/home/engineers`.
 
